@@ -1,11 +1,25 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import About from './About';
+import Services from './Services';
+import Navbar from './Navbar';
+import Home from './Home';
+
+
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <>
+      <BrowserRouter>
+      <Navbar/>
+        <Routes>
+        <Route path="/" element={<Home />} />
+
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
